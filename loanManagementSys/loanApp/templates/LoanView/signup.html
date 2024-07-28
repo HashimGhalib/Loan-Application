@@ -1,0 +1,14 @@
+{% extends 'LoanView/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>SIGN UP</h2>
+
+<form action="#" method="post">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <button type="submit">Sign Up</button>
+</form>
+
+{% endblock content %}
+
