@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,15 +125,56 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 # LOGIN
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'dashboard'
+# LOGIN_URL = 'login'
+
+LOGIN_REDIRECT_URL = '/dashboard'
 
 # LOGOUT
-LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = ''
+# LOGOUT_URL = '/logout'
+# LOGOUT_REDIRECT_URL = '/logout'
 
-
+#Crispy
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# # SENDPULSE FOR EMAIL VERIFICATION
+# SENDPULSE_API_ID = 'a565cbf939cf9d30f8d1352c105961ee'
+# SENDPULSE_API_SECRET = 'ff597490002e1c44af299d5166c14c29'
+# SENDPULSE_SENDER_EMAIL = 'hashimghalib02@gmail.com'
+
+# FOR EMAIL VERIFICATION
+# myaccount.google.com/lesssecureapps
+# accounts.google.com/DisplayUnlockCaptcha
+# myaccount.google.com/apppasswords
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'hashimghalib02@gmail.com'
+EMAIL_HOST_PASSWORD = 'jnug hlch fdbs iqol'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Default sender email address
+
+# AUTH_USER_MODEL = 'loanApp.CustomUser'
+
+# MEDIA URL
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# SESSION
+
+# The session engine to use (default is database-backed sessions)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# The age of session cookies, in seconds (default is 2 weeks)
+SESSION_COOKIE_AGE = 1209600  # 2 weeks
+
+# Whether the session cookie should expire when the user closes their browser
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# Whether to save the session data to the database on every request
+SESSION_SAVE_EVERY_REQUEST = False
+

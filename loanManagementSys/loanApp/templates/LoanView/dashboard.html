@@ -1,3 +1,46 @@
 {% extends 'LoanView/base.html' %}
 
-<h1>Dashboard</h1>
+{% block content %}
+<div class="row">
+    <div class="col-md-10 col-12 mx-auto mt-5">
+        <h1 class="mb-5 text-danger">Dashboard</h1>
+        {% if loanApp|length == 1 %}
+        <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'application' %}" class="btn btn-primary">Apply</a>
+        </div>
+        {% endif %}
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-primary">ID</th>
+                    <th scope="col" class="text-primary">Loan Type</th>
+                    <th scope="col" class="text-primary">Loan Amount</th>
+                    <th scope="col" class="text-primary">Loan Term</th>
+                    <th scope="col" class="text-primary">Application Date</th>
+                    <th scope="col" class="text-primary">Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row">{{ loanApp.loan_application_id }}</th>
+                    <td>{{ loanApp.loan_type }}</td>
+                    <td>{{ loanApp.loan_amount }}</td>
+                    <td>{{ loanApp.loan_term }}</td>
+                    <td>{{ loanApp.application_date }}</td>
+                    <td>{{ loanApp.status }}</td>
+                    <td><a href="{% url 'delete-application' loanApp.loan_application_id %}" class="btn btn-outline-danger">Delete</a></td>
+<!--                    <td>-</td>-->
+                </tr>
+              </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<!--    <button class="btn btn-danger" type="submit"><a href="{% url 'logout' %}" class="nav-link">Logout</a></button>-->
+
+
+{% endblock content %}

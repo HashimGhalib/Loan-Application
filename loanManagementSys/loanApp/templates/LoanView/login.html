@@ -2,18 +2,32 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<form action="#" method="post">
-    {% csrf_token %}
+<div class="row">
+    <div class="col-11 col-md-4 mx-auto mt-5">
+        <h1 class="text-danger">Log In</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
 
-    {{ form.username.label_tag }}
-    {{ form.username }}
-    {{ form.username.errors }}
+<!--    {{ form.username.label_tag }}-->
+<!--    {{ form.username }}-->
+<!--    {{ form.username.errors }}-->
 
-    {{ form.password.label_tag  }}
-    {{ form.password }}
-    {{ form.password.errors }}
-    <button type="submit">Login</button>
+<!--    {{ form.password.label_tag  }}-->
+<!--    {{ form.password }}-->
+<!--    {{ form.password.errors }}-->
+        <button class="btn btn-success" type="submit">Log In</button>
+        <div>
+            <small class="text-muted"> Do you need an account?
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </small>
+        </div>
+
 </form>
+
+    </div>
+</div>
+
 
 {% endblock content %}
 

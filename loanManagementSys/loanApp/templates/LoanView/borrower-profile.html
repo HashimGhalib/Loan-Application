@@ -1,0 +1,90 @@
+{% extends 'LoanView/base.html' %}
+{% load static %}
+<!--{% load crispy_forms_tags %}-->
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10 col-12 mx-auto mt-2">
+        {% if borrowers is not None %}
+
+        <div class="d-flex justify-content-end mb-3">
+
+<!--            <img src="{{ borrower.profile_picture.url }}" alt="Profile Picture">-->
+            <img class="rounded float-end " style="max-height:70px; max-width:auto" src="{% static 'images/default_profile_picture.png' %}" alt="Profile Picture">
+        </div>
+        <div class="d-flex justify-content-end">
+            <a href="#" class="nav-link text-success">Profile Picture</a>
+        </div>
+
+        <h1 class="mb-5 text-danger">Borrower Profile</h1>
+
+
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+<!--                    <th scope="col">ID</th>-->
+<!--                    <th scope="col">Loan Type</th>-->
+<!--                    <th scope="col">Loan Amount</th>-->
+<!--                    <th scope="col">Loan Term</th>-->
+<!--                    <th scope="col">Application Date</th>-->
+<!--                    <th scope="col">Status</th>-->
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="row" class="text-primary">ID</th>
+                    <td>{{ borrowers.borrower_id }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">Email</th>
+                    <td>{{ borrowers.email }}</td>
+<!--                    <td>-</td>-->
+<!--                    <td>-</td>-->
+<!--                    <td>-</td>-->
+<!--                    <td>-</td>-->
+<!--                    <td>-</td>-->
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">First Name</th>
+                    <td>{{ borrowers.first_name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">Last Name</th>
+                    <td>{{ borrowers.last_name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">DOB</th>
+                    <td>{{ borrowers.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">Income</th>
+                    <td>{{ borrowers.income }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">Phone Number</th>
+                    <td>{{ borrowers.phone_number }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="text-primary">Employment History</th>
+                    <td>{{ borrowers.employment_history }}</td>
+                </tr>
+              </tbody>
+
+        </table>
+
+        <div class="mt-4 flex justify-content-end ">
+            <a href="{% url 'edit-borrower' borrowers.borrower_id %}" class="m-1 btn btn-outline-primary">Edit</a>
+<!--            <a href="{% url 'delete-borrower' borrowers.borrower_id %}" class=" m-1 btn btn-outline-danger">Delete</a>-->
+        </div>
+
+        {% endif %}
+    </div>
+</div>
+
+
+<!--    <button class="btn btn-danger" type="submit"><a href="{% url 'logout' %}" class="nav-link">Logout</a></button>-->
+
+
+{% endblock content %}

@@ -1,3 +1,15 @@
-<h1>Home</h1>
-<a href="{% url 'login' %}">Log In</a>
-<a href="{% url 'signup' %}">Sign Up</a>
+{% extends 'LoanView/base.html' %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-11 col-md-4 mx-auto mt-5">
+            <h1 class="text-danger mb-2">Your Journey Start Here</h1>
+            <p class="fw-light">Welcome to our Loan Services, where your financial goals become a reality.
+                Whether you're planning to buy your dream home, start a new business, or consolidate debt,
+                we offer tailored loan options designed to meet your unique needs. With competitive rates,
+                flexible terms, and a commitment to exceptional customer service, we're here to guide you every
+                step of the way. Explore our range of loan products today and take the first step towards achieving
+                your financial aspirations.</p>
+            <a class="btn btn-primary btn-lg mt-2" href="{% url 'dashboard' %}">Go To Your Dashboard</a>
+        </div>
+    </div>
+{% endblock content %}
